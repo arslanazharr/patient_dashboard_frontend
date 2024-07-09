@@ -154,7 +154,7 @@ export const patientsData = [
     name: "Phoenix Baker",
     userImage:
       "https://res.cloudinary.com/danbfkvrk/image/upload/v1720450688/health_dashboard/icons/avatars/avatar1_invmzj.svg",
-    diseases: ["breating_problem"],
+    diseases: ["breathing_problem"],
     previousAppointment: "2024-07-09T16:24:00Z",
     status: "no_appointment",
     nextAppointment: "2024-07-09T16:24:00Z",
