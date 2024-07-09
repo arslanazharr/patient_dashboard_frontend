@@ -1,8 +1,48 @@
-# React + Vite
+## Table of Contents
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. Installation
+2. Usage
+3. Contributing
+4. Contact
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To get started with this project, follow these steps:
+
+1. Clone the repository:
+
+   git clone [https://github.com/your-username/your-project.git](https://github.com/arslanazharr/patient_dashboard_frontend)
+
+2. Navigate into the project directory:
+
+   cd project/
+
+3. Install dependencies:
+
+   npm install
+
+## Usage
+
+Once you have installed the dependencies, you can run the project with:
+
+npm run dev
+
+Describe how to use your project here. Provide examples or additional details if necessary.
+
+## Contributing
+
+If you want to contribute to this project, follow these steps:
+
+1. Fork this repository.
+2. Create a new branch (git checkout -b feature/awesome-feature).
+3. Make your changes.
+4. Commit your changes (git commit -am 'Add some awesome feature').
+5. Push to the branch (git push origin feature/awesome-feature).
+6. Create a new Pull Request.
+
+
+## Contact
+
+If you have any questions or feedback, feel free to reach out:
+
+- Email: arslanofcl@gmail.com
