@@ -16,14 +16,17 @@ import DiseaseBadge from "../../../utils/DiseaseBadge";
 import StatusBadge from "../../../utils/StatusBadge";
 import trash from "../../../assets/icons/other/trash.svg";
 import { deletePatient } from "../../../redux/patient/deleteSlice";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import { getPatients } from "../../../redux/patient/getSlice";
 
 export default function DataTable() {
   const [selected, setSelected] = useState([]);
   const [deletedItems, setDeletedItems] = useState([]);
   const { data, isLoading } = useSelector((state) => state?.patients);
+  const [sortBy, setSortBy] = useState("descending");
   const dispatch = useDispatch();
 
-  // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const recordsPerPage = 4;
 
@@ -85,6 +88,13 @@ export default function DataTable() {
     }
   };
 
+  const toggleSort = () => {
+    const newSortOrder = sortBy === "descending" ? "ascending" : "descending";
+    setSortBy(newSortOrder);
+
+    dispatch(getPatients({ order: newSortOrder }));
+  };
+
   return (
     <div>
       <TableContainer
@@ -106,7 +116,18 @@ export default function DataTable() {
                   onChange={handleSelectAllClick}
                 />
               </TableCell>
-              <TableCell align="left">Name</TableCell>
+              <TableCell align="left">
+                <div className="flex flex-row items-center gap-3">
+                  Name
+                  <IconButton onClick={toggleSort}>
+                    {sortBy === "descending" ? (
+                      <ArrowDownwardIcon />
+                    ) : (
+                      <ArrowUpwardIcon />
+                    )}
+                  </IconButton>
+                </div>
+              </TableCell>
               <TableCell>Diseases</TableCell>
               <TableCell align="left">Previous Appointment</TableCell>
               <TableCell align="left">Next Appointment</TableCell>

@@ -232,7 +232,7 @@ const Patients = () => {
         )}
       </div>
       {activeTab === "Monitoring Status" && (
-        <div className="w-full flex justify-center">
+        <div className="w-full flex justify-center font-inter">
           <div className="flex flex-col items-center gap-2 text-main my-[120px]">
             <p className="text-2xl sm:text-4xl">No record found</p>
             <ErrorOutlineIcon className="!text-[60px] sm:!text-[90px]" />
