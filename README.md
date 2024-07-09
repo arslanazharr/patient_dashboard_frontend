@@ -11,7 +11,7 @@ To get started with this project, follow these steps:
 
 1. Clone the repository:
 
-   git clone [https://github.com/your-username/your-project.git](https://github.com/arslanazharr/patient_dashboard_frontend)
+   git clone [[https://github.com/your-username/your-project.git](https://github.com/arslanazharr/patient_dashboard_frontend)]
 
 2. Navigate into the project directory:
 
