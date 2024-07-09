@@ -7,31 +7,34 @@ import { toast } from "react-toastify";
 const BASE_URL = process.env.BASE_URL;
 
 // Action
-export const getPatients = createAsyncThunk("getPatients", async (params) => {
-  try {
-    let url = `${BASE_URL}/api/patients`;
+export const getPatients = createAsyncThunk(
+  "getPatients",
+  async (params = {}) => {
+    try {
+      let url = `${BASE_URL}/api/patients`;
 
-    if (params.name) {
-      url += `/${params.name}`;
+      if (params.name) {
+        url += `/${params.name}`;
+      }
+
+      if (params.status) {
+        url += `/status/${params.status}`;
+      }
+
+      if (params.order) {
+        url += `/sort/${params.order}`;
+      }
+
+      const response = await axios.get(url);
+
+      toast.success(response.data.message);
+      return response.data;
+    } catch (error) {
+      toast.error(error.response.data.message);
+      throw error; // Make sure to rethrow the error to propagate it
     }
-
-    if (params.status) {
-      url += `/status/${params.status}`;
-    }
-
-    if (params.order) {
-      url += `/sort/${params.order}`;
-    }
-
-    const response = await axios.get(url);
-
-    toast.success(response.data.message);
-    return response.data;
-  } catch (error) {
-    toast.error(error.response.data.message);
-    throw error; // Make sure to rethrow the error to propagate it
   }
-});
+);
 
 const getSlice = createSlice({
   name: "patients",
