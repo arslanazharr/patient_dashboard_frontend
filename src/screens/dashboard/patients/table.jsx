@@ -187,43 +187,46 @@ export default function DataTable() {
                 );
               })
             )}
+            <TableCell colSpan={12}>
+              <div className="col-span-12 flex py-[12px] sm:justify-between justify-center sm:gap-0 gap-3 items-center w-full h-full px-[10px] bg-[#fafafa] rounded-[12px] !shadow-sm border">
+                <div
+                  className="flex items-center border rounded-[12px] py-[8px] px-[12px] gap-[4px] cursor-pointer bg-white"
+                  onClick={() => handleChangePage(currentPage - 1)}
+                  disabled={currentPage === 1}
+                >
+                  <p className="text-[14px] font-semibold">Previous</p>
+                </div>
+
+                <div className="sm:flex hidden">
+                  {Array.from({ length: totalPages }, (_, index) => (
+                    <div
+                      key={index}
+                      onClick={() => handleChangePage(index + 1)}
+                      style={{
+                        margin: "0 5px",
+                        background: currentPage === index + 1 ? "white" : "",
+                      }}
+                      className={`flex items-center rounded-[12px] py-[8px] px-[12px] gap-[4px] cursor-pointer w-[40px] h-[40px] justify-center ${
+                        currentPage === index + 1 &&
+                        "border shadow-sm font-semibold"
+                      }`}
+                    >
+                      {index + 1}
+                    </div>
+                  ))}
+                </div>
+
+                <div
+                  className="flex items-center border rounded-[12px] py-[8px] px-[12px] gap-[4px] cursor-pointer bg-white"
+                  onClick={() => handleChangePage(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                >
+                  <p className="text-[14px] font-semibold">Next</p>
+                </div>
+              </div>
+            </TableCell>
           </TableBody>
         </Table>
-        <div className="flex py-[12px] sm:justify-between justify-center sm:gap-0 gap-3 items-center w-full h-full px-[10px] bg-[#fafafa] rounded-bl-[12px] rounded-br-[12px] !shadow-sm border">
-          <div
-            className="flex items-center border rounded-[12px] py-[8px] px-[12px] gap-[4px] cursor-pointer bg-white"
-            onClick={() => handleChangePage(currentPage - 1)}
-            disabled={currentPage === 1}
-          >
-            <p className="text-[14px] font-semibold">Previous</p>
-          </div>
-
-          <div className="sm:flex hidden">
-            {Array.from({ length: totalPages }, (_, index) => (
-              <div
-                key={index}
-                onClick={() => handleChangePage(index + 1)}
-                style={{
-                  margin: "0 5px",
-                  background: currentPage === index + 1 ? "white" : "",
-                }}
-                className={`flex items-center rounded-[12px] py-[8px] px-[12px] gap-[4px] cursor-pointer w-[40px] h-[40px] justify-center ${
-                  currentPage === index + 1 && "border shadow-sm font-semibold"
-                }`}
-              >
-                {index + 1}
-              </div>
-            ))}
-          </div>
-
-          <div
-            className="flex items-center border rounded-[12px] py-[8px] px-[12px] gap-[4px] cursor-pointer bg-white"
-            onClick={() => handleChangePage(currentPage + 1)}
-            disabled={currentPage === totalPages}
-          >
-            <p className="text-[14px] font-semibold">Next</p>
-          </div>
-        </div>
       </TableContainer>
     </div>
   );
