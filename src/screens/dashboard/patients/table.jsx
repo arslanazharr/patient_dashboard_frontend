@@ -12,6 +12,7 @@ import {
   IconButton,
   LinearProgress,
 } from "@mui/material";
+import moment from "moment";
 import DiseaseBadge from "../../../utils/DiseaseBadge";
 import StatusBadge from "../../../utils/StatusBadge";
 import trash from "../../../assets/icons/other/trash.svg";
@@ -166,8 +167,12 @@ export default function DataTable() {
                     <TableCell>
                       <DiseaseBadge data={data.diseases} />
                     </TableCell>
-                    <TableCell>{data.previousAppointment}</TableCell>
-                    <TableCell>{data.nextAppointment}</TableCell>
+                    <TableCell>
+                      {moment(data.previousAppointment).format("MMMM D, YYYY")}
+                    </TableCell>
+                    <TableCell>
+                      {moment(data.nextAppointment).format("MMMM D, YYYY")}
+                    </TableCell>
                     <TableCell>
                       <StatusBadge data={data.status} />
                     </TableCell>
