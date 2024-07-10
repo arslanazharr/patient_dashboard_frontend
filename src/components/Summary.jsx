@@ -4,7 +4,6 @@ import { SparkLineChart } from "@mui/x-charts/SparkLineChart";
 import arrowUp from "../assets/icons/other/up.svg";
 import arrowDown from "../assets/icons/other/down.svg";
 import { useSelector } from "react-redux";
-import Skeleton from "@mui/material/Skeleton";
 import CircularProgress from "@mui/material/CircularProgress";
 
 const Summary = () => {
@@ -117,7 +116,7 @@ const Summary = () => {
                       <div className="flex flex-row">
                         <img
                           src={
-                            data?.parcentageChange?.changeType === "increase"
+                            data?.percentageChange?.changeType === "increase"
                               ? arrowUp
                               : arrowDown
                           }
@@ -125,12 +124,12 @@ const Summary = () => {
                         />
                         <p
                           className={`${
-                            data?.parcentageChange?.changeType === "increase"
+                            data?.percentageChange?.changeType === "increase"
                               ? "text-[#079455]"
                               : "text-[#D92D20]"
                           } text-[14px] font-medium`}
                         >
-                          {data?.parcentageChange?.value}%
+                          {data?.percentageChange?.value || 10}%
                         </p>
                       </div>
                       <p className="text-[#475467] text-[14px] font-medium whitespace-nowrap">
@@ -139,12 +138,12 @@ const Summary = () => {
                     </div>
                     <SparkLineChart
                       data={
-                        data?.parcentageChange?.changeType === "increase"
+                        data?.percentageChange?.changeType === "increase"
                           ? [1, 4, 2, 5, 7, 2, 4, 6, 10]
                           : [1, 3, 6, 3, 7, 4, 6, 5, 11].reverse()
                       }
                       colors={[
-                        data?.parcentageChange?.changeType === "increase"
+                        data?.percentageChange?.changeType === "increase"
                           ? "#079455"
                           : "#D92D20",
                       ]}
