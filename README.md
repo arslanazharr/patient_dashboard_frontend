@@ -27,8 +27,6 @@ Once you have installed the dependencies, you can run the project with:
 
 npm run dev
 
-Describe how to use your project here. Provide examples or additional details if necessary.
-
 ## Contributing
 
 If you want to contribute to this project, follow these steps:
